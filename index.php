@@ -50,8 +50,8 @@ jQuery(document).ready(function($){
 	<div class="scanlines"></div>
 </div>
 <!-- End Fullscreen backgrounds -->
-   	
-   	
+
+
 <div id="header">
    <!-- Begin Menu -->
 		<div id="menu" class="menu">
@@ -60,76 +60,76 @@ jQuery(document).ready(function($){
 			  <li><a href="torneos.php">Torneos</a></li>
 			  <li><a href="contactanos.php">Contactanos</a></li>
 			  <li id="barner_menu"><a href="index.php"><img src="style/images/art/barner.png" alt="" /></a></li>
-			  <?php		
+			  <?php
 				if($sesion==1){echo "<li name='none'><a href='cerrar_sesion.php'>Cerrar Sesión</a></li>";}
 				else if($sesion==0){echo "<li name='none'><a href='sesion.php'>Iniciar Sesión</a></li>";}
-			  ?>			  
+			  ?>
 			  <li name='none'><a href="#"><img src="style/images/icon-facebook.png" alt="Facebook" /></a></li>
 			  <li name='none'><a href="#"><img src="style/images/icon-twitter.png" alt="Twitter" /></a></li>
-			  <li name='none'><a href="#"><img src="style/images/icon-googleplus.png" alt="Google+" /></a></li>    		  			  
+			  <li name='none'><a href="#"><img src="style/images/icon-googleplus.png" alt="Google+" /></a></li>
 			</ul>
 			<br style="clear: left" />
 		</div>
-	<!-- End Menu --> 
-	
-    
+	<!-- End Menu -->
+
+
   </div>
-	
+
 <!-- Begin Wrapper -->
 
 <div id="wrapper">
-  
+
   <div class="clear"></div>
-  
+
   <!-- Begin Container -->
   <div id="container">
-   
-  <div id="container2"> 
-    
+
+  <div id="container2">
+
     <!-- Begin Showcase -->
 
     <div class="hr2"></div>
-    <!-- Divider --> 
-    
+    <!-- Divider -->
+
     <!-- Begin Top Columns -->
-    
+
     <h2></h2>
-    
+
     <div class="four-third">
-    
+
 	<div id='cont_org'>
 		<p><b class='texto_index'>Bienvenido al sistema Avanzado<br>Torneo Master<br><br>Aquí podras visualizar los torneos que<br>Hemos realizado y tendras la<br>Posibilidad de observar como se estan<br>Desarrollando nuestros torneos
 		en<br>Tiempo real (En Vivo)</b></p><br><br>
-		
+
 		<p><b class='texto_index'>Para continuar selecciona una de las opciones que se encuentran en el menu superior<br><br></b></p>
 	</div>
-   
+
     </div>
     <div class="one-fourth">
-        
+
         <ul class="latest-posts">
-        
-        
+
+
         </ul>
-        
+
       </div>
     <!-- End Top Columns -->
-    
-    
+
+
     <div class="clear"></div>
     <div class="hr1"></div>
-    <!-- Divider --> 
-  
+    <!-- Divider -->
+
   </div>
   <!-- End Container2 -->
   </div>
   <!-- End Container -->
-  
+
   <div id="copyright">
     <p>© 2017 Torneo Master. Todos los derechos reservados.</p>
   </div>
 </div>
-<!-- End Wrapper --> 
+<!-- End Wrapper -->
 
 <script type="text/javascript" src="style/js/scripts.js"></script>
 </body>

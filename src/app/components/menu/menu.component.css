@@ -23,19 +23,19 @@
 /*-----------------------------------------------------------------------------------*/
 
 .menu {
-    border: 1px solid #878787;
-    font-family: 'Museo500';
+    position: fixed;
+    top: 0;
+    border: 0;
+    border-bottom: 1px solid #878787;
+    /* box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.6); */
+    color: #dedede;
     list-style: none;
     font-weight: normal;
-    width: 100% !important;
-    height:70px !important;
+    width: 100%;
+    height: 60px;
     padding: 0;
-    background:rgba(255,255,255,1) !important;
-    -webkit-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.6) !important;
-    -moz-box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.6);
-    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.6) !important;
+    background: rgba(255,255,255,1);
     z-index: 10;
-    position: relative;
 }
 .menu ul {
     margin: 0;
@@ -43,6 +43,9 @@
     font-family: 'Museo500';
     font-style: normal;
     letter-spacing: normal;
+}
+.menu ul div {
+    padding: 0px;
 }
 .menu ul li {
     position: relative;
@@ -53,16 +56,19 @@
 }
 .menu ul li a {
     display: inline-block;
-    padding: 0px 30px;
+    padding: 0px;
     margin: 0px auto;
     text-decoration: none;
     border: 0px;
-    font-size: 14px;
+    color: #848181;
+    font-size: 17px;
+}
+.menu ul li a:hover {
+    color: #02B8BF;
 }
 .menu ul li[id='barner_menu']
 {
     width: 50% !important;
-    height: 80px !important;
     margin: 0px !important;
     padding: 0px !important;
     display: inline-block;
@@ -81,14 +87,14 @@
 {
     margin: 0px !important;
     padding: 0px !important;
-    width: 80%;
+    width: 90%;
     height: 100%;
     display: inline-block;
 }
 .boton_salir{
     padding-top:13px;
     transform:translate(251px,0px);
-    background: url('/assets/image/organizaciones/boton_salir.png') no-repeat;
+    background: url("../../../assets/image/organizaciones/boton_salir.png") no-repeat;
     background-size:35px 35px;
 }
 /* Fin Del Header*/

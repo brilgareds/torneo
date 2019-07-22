@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/home/home.component';
@@ -16,9 +17,10 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [MenuComponent]
+  bootstrap: [MenuComponent, TournamentComponent]
 })
 export class AppModule { }
