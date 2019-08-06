@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
     selector: 'app-tournament',
     templateUrl: './tournament.component.html',
-    styleUrls: ['./tournament.component.css']
+    styleUrls: ['./tournament.component.scss']
 })
 export class TournamentComponent implements OnInit {
     public organizations: object[] = [{
@@ -17,18 +17,39 @@ export class TournamentComponent implements OnInit {
         logo1: '../../../assets/image/organizaciones/samra/logo1_samra.png',
         logo2: ''
     }];
+    public torneos: object;
+    public url_listarTorneos = 'http://localhost/api/torneo.php';
+    public options: object = {
+        headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
+        observe: 'body'
+    };
+    public response: any;
+    public obj: object = {
+        t: '',
+        f: 'detalle'
+    };
 
-    constructor(private http: HttpClient) { }
-    public torneos = [];
-    private url_listarTorneos = 'localhost/torneo/api/torneo.php';
+    constructor(public http: HttpClient) { }
 
-    getTorneo () {
-        return this.http.post(this.url_listarTorneos);
+    getTorneo() {
+        return this.http.post(this.url_listarTorneos, this.obj, this.options);
     }
 
     ngOnInit() {
-        this.torneos = this.getTorneo();
-        console.log(this.torneos);
-    }
+        console.log('Before!!');
+        this.torneos = {};
 
+        this.getTorneo().subscribe(res => {
+            const response: any = res;
+            console.log('this.response: ', response.status);
+
+            if (response.status === 200) {
+                console.log('All fine!!!\n', 'Obj es: ', response.obj);
+            } else {
+                console.log('Hubo un error!\n', response.msg);
+            }
+        });
+        console.log(this.torneos);
+        console.log('After!!');
+    }
 }

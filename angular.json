@@ -30,7 +30,6 @@
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
-              // "./node_modules/popper.js/dist/umd/popper.min.js",  Popper error!!!
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
@@ -121,6 +120,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "torneo"
+    }
+  },
+  "defaultProject": "torneo",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

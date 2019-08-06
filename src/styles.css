@@ -37,5 +37,6 @@ body {
     margin-top: 30px;
     padding: 10px;
     text-align: center;
-    background: rgba(255,255,255,0.94);
+    background: linear-gradient(141deg, rgba(7, 32, 78, 0.94) 0%, rgba(88, 136, 195, 0.94) 51%, rgba(7, 32, 78, 0.94) 75%);
+    color: #FFF;
 }

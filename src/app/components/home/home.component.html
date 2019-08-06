@@ -1,8 +1,13 @@
-<div id='cont_org'>
-    <p><b class='texto_index'>Bienvenido al sistema Avanzado<br>Torneo Master<br><br>Aquí podras visualizar los torneos
-        que<br>Hemos realizado y tendras la<br>Posibilidad de observar como se estan<br>Desarrollando nuestros torneos
-        en<br>Tiempo real (En Vivo)</b></p><br><br>
+<h3>Eyyyyyy</h3>
 
-    <p><b class='texto_index'>Para continuar selecciona una de las opciones que se encuentran en el menu
-        superior<br><br></b></p>
-</div>
+<div id="tntGridServices" ui-grid="tableGeneralOptions"></div>
+
+<ag-grid-angular
+        style="height: 500px;"
+        class="col-sm-8 ag-theme-balham"
+        [rowData]="tableTournements.data"
+        [columnDefs]="tableTournements.columnDefs"
+>
+</ag-grid-angular>
+
+<h3>Eoooo</h3>
