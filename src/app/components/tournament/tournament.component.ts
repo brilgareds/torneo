@@ -18,7 +18,7 @@ export class TournamentComponent implements OnInit {
         logo2: ''
     }];
     public torneos: object;
-    public url_listarTorneos = 'http://localhost/api/torneo.php';
+    public urlListarTorneos = 'http://localhost/api/torneo.php';
     public options: object = {
         headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
         observe: 'body'
@@ -32,7 +32,7 @@ export class TournamentComponent implements OnInit {
     constructor(public http: HttpClient) { }
 
     getTorneo() {
-        return this.http.post(this.url_listarTorneos, this.obj, this.options);
+        return this.http.post(this.urlListarTorneos, this.obj, this.options);
     }
 
     ngOnInit() {

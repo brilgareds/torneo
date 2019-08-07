@@ -10,20 +10,20 @@ import {FooterComponent} from './components/footer/footer.component';
 import {AgGridModule} from 'ag-grid-angular';
 
 @NgModule({
-    declarations: [
-        MenuComponent,
-        HomeComponent,
-        TournamentComponent,
-        ScoresComponent,
-        FooterComponent
-    ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        AgGridModule.withComponents([])
-    ],
-    providers: [],
-    bootstrap: [MenuComponent, TournamentComponent, HomeComponent]
+  declarations: [
+    MenuComponent,
+    HomeComponent,
+    TournamentComponent,
+    ScoresComponent,
+    FooterComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AgGridModule.withComponents([])
+  ],
+  providers: [],
+  bootstrap: [MenuComponent, TournamentComponent, HomeComponent]
 })
 export class AppModule {
 }
