@@ -1,5 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
 
+
+.ag-theme-balham .ag-header {
+  background-color: #2b7da5;
+  color: rgb(255, 255, 255);
+}
+
+.ag-theme-balham .ag-icon-menu {
+  color: white;
+}
+
+.ag-theme-balham .ag-row-odd:not(.ag-row-selected) {
+  background-color: #f1f1f1;
+}
 html, body {
   min-height: 100vh;
   margin: 0;

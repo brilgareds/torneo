@@ -58,9 +58,9 @@ export class HomeComponent implements OnInit {
             data: this.tournements,
             options: this.tableGeneralOptions,
             columnDefs: [
-                {headerName: 'Name', field: 'name' },
-                {headerName: 'OrganizationName', field: 'organizationName' },
-                {headerName: 'OrganizationLogo1', field: 'organizationLogo1'}
+                {headerName: 'Name', field: 'name', sortable: true, filter: true, checkboxSelection: true },
+                {headerName: 'OrganizationName', field: 'organizationName', sortable: true, filter: true },
+                {headerName: 'OrganizationLogo1', field: 'organizationLogo1', sortable: true, filter: true }
             ]
         };
         console.log('tableGeneralOptions: ', this.tableTournements);

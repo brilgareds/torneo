@@ -1,53 +1,15 @@
-<div class="col-sm-10 card" style="text-align: center; padding: 0; margin: 0 auto;">
-    <div class="card-header" style="background: linear-gradient(141deg, rgba(0, 58, 86, 0.94) 0%, rgb(16, 171, 195) 51%, rgba(0, 58, 86, 0.94) 75%); color: #FFF;">
-        Torneos
-    </div>
-    <div class="card-body container-organizations">
-        <div class="col-sm-10">
-            <div class="col-sm-12">
-                <label>Torneo</label><input type="text" placeholder="Escriba Nombre torneo">
-            </div>
-        </div>
-    </div>
-    <div class="card-body container-organizations">
-        <div class="col-sm-10">
-            <div class="col-sm-12">
-                <div ng-controller="MainCtrl as $ctrl">
-                    <div id="grid1" ui-grid="$ctrl.gridOptions" ui-grid-edit class="grid"></div>
-                </div>
-
-
-                <div class="col-sm-2 organization" *ngFor="let organization of organizations; let i = index">
-                    <a><img src={{organization.logo1}} /></a>
-                    <p>{{organization.name}}</p>
-                </div>
-                <div class="col-sm-2 organization" *ngFor="let organization of organizations; let i = index">
-                    <a><img src={{organization.logo1}} /></a>
-                    <p>{{organization.name}}</p>
-                </div>
-                <div class="col-sm-2 organization" *ngFor="let organization of organizations; let i = index">
-                    <a><img src={{organization.logo1}} /></a>
-                    <p>{{organization.name}}</p>
-                </div>
-                <div class="col-sm-2 organization" *ngFor="let organization of organizations; let i = index">
-                    <a><img src={{organization.logo1}} /></a>
-                    <p>{{organization.name}}</p>
-                </div>
-                <div class="col-sm-2 organization" *ngFor="let organization of organizations; let i = index">
-                    <a><img src={{organization.logo1}} /></a>
-                    <p>{{organization.name}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<h2>Torneos:</h2><br>
-<div class='four-third'><br>
-    <h3 align='center'>Por favor seleccione el torneo</h3><br>
-    <div>
-        {{torneos}}
+<div class="col-sm-10 offset-sm-1">
+    <p class="col-sm-12" style="text-align: center; font-size: 26px; color: #2b7da5; font-weight: bolder;">
+        Listado de Torneos
+    </p>
+    <div class="container-organizations">
+        <ag-grid-angular
+                style="height: 500px; padding: 0;"
+                class="col-sm-12 ag-theme-balham"
+                [rowData]="tableTournements.data"
+                [columnDefs]="tableTournements.columnDefs"
+                rowSelection="multiple"
+        >
+        </ag-grid-angular>
     </div>
 </div>

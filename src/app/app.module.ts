@@ -23,7 +23,7 @@ import {AgGridModule} from 'ag-grid-angular';
     AgGridModule.withComponents([])
   ],
   providers: [],
-  bootstrap: [MenuComponent, TournamentComponent, HomeComponent]
+  bootstrap: [MenuComponent, TournamentComponent]
 })
 export class AppModule {
 }

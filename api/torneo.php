@@ -14,16 +14,11 @@
     ];
 
     $data = json_decode(file_get_contents('php://input'));
+    $torneoClass = new torneo;
 
-    if (isset($data->f) && $data->f !== '' && isset($data->t) && $data->t !== '') {
-        $torneoClass = new torneo;
-        $torneoCod = $data->t;
-        $funcion = $data->f;
-
-        if (method_exists($torneoClass, $funcion)) {
-            $response['obj'] = $torneoClass->$funcion($torneoCod);
-            $response['status'] = 200;
-        }
+    if (isset($data->method) && $data->method !== '' && method_exists($torneoClass, $data->method)) {
+        $method = $data->method;
+        $response = $torneoClass->$method($data);
     }
 
     echo json_encode($response);
