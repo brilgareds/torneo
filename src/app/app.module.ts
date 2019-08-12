@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 import {MenuComponent} from './components/menu/menu.component';
 import {HomeComponent} from './components/home/home.component';
@@ -20,6 +21,7 @@ import {AgGridModule} from 'ag-grid-angular';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AgGridModule.withComponents([])
   ],
   providers: [],

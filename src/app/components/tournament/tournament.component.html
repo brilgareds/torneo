@@ -1,15 +1,32 @@
 <div class="col-sm-10 offset-sm-1">
-    <p class="col-sm-12" style="text-align: center; font-size: 26px; color: #2b7da5; font-weight: bolder;">
-        Listado de Torneos
-    </p>
-    <div class="container-organizations">
-        <ag-grid-angular
-                style="height: 500px; padding: 0;"
-                class="col-sm-12 ag-theme-balham"
-                [rowData]="tableTournements.data"
-                [columnDefs]="tableTournements.columnDefs"
-                rowSelection="multiple"
-        >
-        </ag-grid-angular>
+    <div class="card">
+        <div class="card-header text-white" style="background-color: #0464b7; border-color: #428bca;">
+            <h5 style="text-align: center; font-weight: bolder; margin: 0;">
+                Listado de Torneos
+            </h5>
+        </div>
+        <div class="card-body" style="padding: 2rem;">
+            <div class="col-sm-3 offset-9" style="padding-right: 0;">
+                <div class="col-sm-3 d-inline-block text-right" style="padding: 0;">
+                    Filtro
+                </div>
+                <div class="col-sm-9 d-inline-block" style="padding-right: 0;">
+                    <input type="text" id="filter-text-box" style="margin-bottom: 3px;" [(ngModel)]="filtroGrid.filterText" (keyup)="quickSearch()" class="form-control" placeholder="Inserte su busqueda"/>
+                </div>
+            </div>
+            <div class="container-organizations">
+                <ag-grid-angular
+                        style="height: 500px; padding: 0;"
+                        class="col-sm-12 ag-theme-balham"
+                        [defaultColDef]="tableTournements.defaultColDef"
+                        [rowData]="tableTournements.data"
+                        [columnDefs]="tableTournements.columnDefs"
+                        rowSelection="multiple"
+                        [animateRows]="true"
+                        (gridReady)="onGridReady($event)"
+                >
+                </ag-grid-angular>
+            </div>
+        </div>
     </div>
 </div>

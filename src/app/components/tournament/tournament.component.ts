@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @Component({
     selector: 'app-tournament',
@@ -10,38 +11,22 @@ export class TournamentComponent implements OnInit {
     public tournements: any;
     public tableGeneralOptions: object;
     public tableTournements: any;
+    public filtroGrid: any = {filterText: '', useExternalFilter: false};
+    public torneos: object;
+    public urlListarTorneos = 'http://localhost/torneo/api/torneo.php';
+    public response: any;
+    public options: object = {
+        headers: new HttpHeaders({'Content-Type': 'application/json'}),
+        observe: 'body'
+    };
+    public obj: object = {
+        method: 'tournamentAll'
+    };
+
+    public gridApi;
+    public gridColumnApi;
 
     constructor(public http: HttpClient) {
-        this.tournements = [{
-            cod: 1,
-            name: 'Primer torneo Regional',
-            shortName: 'R1',
-            logo: 'logoTorneo1',
-            organizationName: 'Asociacion de domino del Estado Aragua',
-            organizationShortName: 'ADA',
-            organizationLogo1: 'style/logo1.jpg',
-            organizationLogo2: 'style/logo2.jpg'
-        },
-            {
-                cod: 2,
-                name: 'Segundo torneo Regional',
-                shortName: 'R2',
-                logo: 'logoTorneo2',
-                organizationName: 'Asociacion de domino del Estado Aragua',
-                organizationShortName: 'ADA',
-                organizationLogo1: 'style/logo1.jpg',
-                organizationLogo2: 'style/logo2.jpg'
-            },
-            {
-                cod: 3,
-                name: 'Tercer torneo Regional',
-                shortName: 'R3',
-                logo: 'logoTorneo3',
-                organizationName: 'Asociacion de domino del Estado Aragua',
-                organizationShortName: 'ADA',
-                organizationLogo1: 'style/logo1.jpg',
-                organizationLogo2: 'style/logo2.jpg'
-            }];
         this.tableGeneralOptions = {
             enableSorting: true,
             enableRowSelection: true,
@@ -50,37 +35,59 @@ export class TournamentComponent implements OnInit {
             enableRowHeaderSelection: false,
             enableColumnMenus: false,
             enableFiltering: true,
-            minRowsToShow: 1
+            minRowsToShow: 1,
+            pagination: true
         };
         this.tableTournements = {
             data: this.tournements,
             options: this.tableGeneralOptions,
+            filterOptions: this.filtroGrid,
+            defaultColDef: {
+                resizable: true,
+                editable: true,
+                sortable: true,
+                filter: true,
+                width: 270
+            },
             columnDefs: [
-                {headerName: 'Name', field: 'nom_tor', sortable: true, filter: true, checkboxSelection: true},
-                {headerName: 'Reglamento', field: 'reglamento_tor', sortable: true, filter: true},
-                {headerName: 'Organizacion', field: 'abr_org', sortable: true, filter: true}
+                {
+                    headerName: 'Codigo',
+                    field: 'cod',
+                    width: 100,
+                    checkboxSelection: true,
+                    filter: 'agNumberColumnFilter'
+                },
+                {
+                    headerName: 'Nombre',
+                    field: 'name'
+                },
+                {
+                    headerName: 'Fecha',
+                    field: 'date',
+                    filter: 'agDateColumnFilter'
+                },
+                {
+                    headerName: 'Responsable',
+                    field: 'responsible'
+                }
             ]
         };
-        console.log('tableGeneralOptions: ', this.tableTournements);
     }
-    public torneos: object;
-    public urlListarTorneos = 'http://localhost/torneo/api/torneo.php';
-    public options: object = {
-        headers: new HttpHeaders({'Content-Type': 'application/json'}),
-        observe: 'body'
-    };
-    public response: any;
-    public obj: object = {
-        method: 'tournamentAll'
-    };
+
+    quickSearch() {
+        this.gridApi.setQuickFilter(this.filtroGrid.filterText);
+    }
+
+    onGridReady(params) {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+    }
 
     getTorneo() {
         return this.http.post(this.urlListarTorneos, this.obj, this.options);
     }
 
     ngOnInit() {
-        this.torneos = {};
-
         this.getTorneo().subscribe(res => {
             const response: any = res;
             console.log('Response: ', response);
@@ -88,9 +95,7 @@ export class TournamentComponent implements OnInit {
             if (response.status === 200) {
                 this.tableTournements.data = response.obj;
                 this.torneos = response.obj;
-            } else {
-                console.log('Hubo un error!\n', response.msg);
-            }
+            } else { console.log('Hubo un error!\n', response.msg); }
         });
     }
 }

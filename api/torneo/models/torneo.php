@@ -16,28 +16,35 @@ class torneo {
     }
 
     public function tournamentAll () {
-        $conexion = mysqli_connect("localhost", "root", "", 'torneo');
-        mysqli_set_charset($conexion,"utf8");
+        $tournaments = [];
+        $conexion = pg_connect("host=localhost port=5432 dbname=torneo user=postgres password=301206.") or die("Can't connect to database".pg_last_error()); ;
+        pg_set_client_encoding($conexion, "utf8");
 
-        $sql_global = "SELECT * FROM torneos";
-        $consulta_global = mysqli_query($conexion, $sql_global);
+        $sql_global = "SELECT * FROM tournements";
+        $consulta_global = pg_query($conexion, $sql_global);
 
-        if ($data = mysqli_fetch_all($consulta_global, MYSQLI_ASSOC)) {
-            $response['status'] = 200;
-            $response['obj'] = $data;
-            $response['msg'] = 'Listando Torneos!';
+        while($data = pg_fetch_object($consulta_global)) {
+            $tournament = [
+                'a' => '3',
+                'b' => '7'
+            ];
+            $tournaments.push($tournament);
         }
+
+        $response['status'] = 200;
+        $response['obj'] = $tournaments;
+        $response['msg'] = 'Listando Torneos!';
 
         return $response;
     }
 
     public function detalle($torneoCod) {
-        $conexion = mysqli_connect("localhost", "root", "", 'torneo');
-        mysqli_set_charset($conexion,"utf8");
+        $conexion = pg_connect("localhost", "root", "301206.", 'torneo');
+        pg_set_client_encoding($conexion, "utf8");
 
         $sql_global = "SELECT * FROM torneos WHERE cod_tor = '${torneoCod}'";
-        $consulta_global = mysqli_query($conexion, $sql_global);
+        $consulta_global = pg_query($conexion, $sql_global);
 
-        return mysqli_fetch_assoc($consulta_global); // $torneo_global
+        return pg_fetch_assoc($consulta_global); // $torneo_global
     }
 }

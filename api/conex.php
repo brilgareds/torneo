@@ -1,7 +1,6 @@
 	<?php
-	    $enlace=mysqli_connect("localhost", "root", "", 'torneo');
-        mysqli_set_charset($enlace,"utf8");
-
+	    $enlace = pg_connect('localhost', "root", '301206.', 'torneo');
         $conexion = $enlace;
-        mysqli_set_charset($conexion,"utf8");
+        pg_set_client_encoding($enlace, "utf8");
+        pg_set_client_encoding($conexion, "utf8");
 	?>
