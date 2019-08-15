@@ -6,29 +6,35 @@
  * Time: 11:27 AM
  */
 
-class torneo {
+class torneo extends BD {
+
+    public $conexion;
+    public $response = [
+        'status' => 500,
+        'msg' => 'Error!!',
+        'obj' => []
+    ];
+
     public function __construct() {
-        $response = [
-            'status' => 500,
-            'msg' => 'Error!!',
-            'obj' => []
-        ];
+        $this->conexion = (new BD)->conexion();
     }
 
     public function tournamentAll () {
         $tournaments = [];
-        $conexion = pg_connect("host=localhost port=5432 dbname=torneo user=postgres password=301206.") or die("Can't connect to database".pg_last_error()); ;
-        pg_set_client_encoding($conexion, "utf8");
 
-        $sql_global = "SELECT * FROM tournements";
-        $consulta_global = pg_query($conexion, $sql_global);
+        $sql_global = "
+            SELECT
+                a.cod,
+                a.name,
+                to_char(a.date, 'DD/MM/YYYY HH12:MI') as date,
+                a.responsible
+            FROM tournements a
+        ";
+        $consulta_global = pg_query($this->conexion, $sql_global);
 
-        while($data = pg_fetch_object($consulta_global)) {
-            $tournament = [
-                'a' => '3',
-                'b' => '7'
-            ];
-            $tournaments.push($tournament);
+        while ($data = pg_fetch_object($consulta_global)) {
+            $data->cod = (int)$data->cod;
+            array_push($tournaments, $data);
         }
 
         $response['status'] = 200;
@@ -39,11 +45,8 @@ class torneo {
     }
 
     public function detalle($torneoCod) {
-        $conexion = pg_connect("localhost", "root", "301206.", 'torneo');
-        pg_set_client_encoding($conexion, "utf8");
-
         $sql_global = "SELECT * FROM torneos WHERE cod_tor = '${torneoCod}'";
-        $consulta_global = pg_query($conexion, $sql_global);
+        $consulta_global = pg_query($this->conexion, $sql_global);
 
         return pg_fetch_assoc($consulta_global); // $torneo_global
     }
