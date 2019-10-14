@@ -38,26 +38,26 @@
     /*background: linear-gradient(141deg, rgba(15, 129, 142, 0.94) 0%, rgba(88, 195, 148, 0.94) 51%, rgba(15, 129, 142, 0.94) 75%);*/
     /*background: linear-gradient(141deg, #0f818e 0%, #58c394 51%, #0f818e 75%);*/
     /* background: linear-gradient(-90deg, rgba(12, 147, 187, 0.9) 0%, rgba(73, 177, 208, 0.9) 50%, rgba(12, 147, 187, 0.9) 100%); */
-    z-index: 10;
+    z-index: 1001;
 }
-.menu ul {
+.menu nav {
     margin: 0;
     list-style-type: none;
     font-family: 'Museo500';
     font-style: normal;
     letter-spacing: normal;
 }
-.menu ul div {
+.menu nav div {
     padding: 0px;
 }
-.menu ul li {
+.menu nav select {
     position: relative;
     display: inline;
     float: left;
     padding: 0;
     background: none;
 }
-.menu ul li a {
+.menu option {
     display: inline-block;
     padding: 0px;
     margin: 0px auto;
@@ -78,6 +78,31 @@
     display: inline-block;
     position: relative;
 }
+
+.menu * {
+    color: #FFF !important;
+    text-align: center;
+}
+
+.menu select {
+    font-size: 18px;
+    color: #FFF !important;
+    width: 90%;
+    background: linear-gradient(141deg, rgba(7, 32, 78, 0.94) 0%, rgba(16, 91, 183, 0.94) 51%, rgba(7, 32, 78, 0.94) 75%) !important;
+}
+.menu select * {
+    font-size: 14px;
+    background: rgba(7, 32, 78, 0.94) !important;
+}
+.menu select {
+    text-align: center;
+    text-align-last: center;
+    padding: 5px 0 !important;
+    border: 0;
+    border-radius: 5px 5px;
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
 #barner_menu a
 {
     margin: 0px !important;

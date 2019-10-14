@@ -1,16 +1,57 @@
 <!-- Begin Menu -->
 <div id="menu" class="menu">
-    <ul class="row" style="margin: 0px; padding: 0; height: 100%; display: flex; justify-content: space-evenly; align-items: center;">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <h4 class="text-white">Collapsed content</h4>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark" style="margin: 0px; padding: 0 2%; height: 100%; display: flex; justify-content: space-between; align-items: center;">
+        <div class="col-sm-1" style="text-align: left;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="col-sm-3" style="display: flex; justify-content: center;">
+            <select name="" id="" style="color: #FFF; background: linear-gradient(141deg, rgba(7, 32, 78, 0.94) 0%, rgba(16, 91, 183, 0.94) 51%, rgba(7, 32, 78, 0.94) 75%);">
+                <option value="">Torneo 1</option>
+                <option value="">Torneo 2</option>
+                <option value="">Torneooooooooooooooooooo 3</option>
+                <option value="">Torneo 4</option>
+                <option value="">Torneo 5</option>
+            </select>
+        </div>
+        <div class="col-sm-4">
+            <a href="index.php" style="padding: 0px; line-height: 56px; font-size: 30px; word-spacing: 5px;">
+                Torneo Master
+            </a>
+        </div>
+        <div class="col-sm-3" style="display: flex; justify-content: center;">
+            <select name="" id="ass">
+                <option value="">Juego 1</option>
+                <option value="">Juego 2</option>
+                <option value="">Juego 3</option>
+                <option value="">Juego 4</option>
+                <option value="">Juego 5</option>
+                <option value="">Juego 6</option>
+                <option value="">Juego 7</option>
+            </select>
+        </div>
+        <div class="col-sm-1" style="display: inline-block; text-align: right;">
+            <i class="far fa-user-circle" style="font-size: 32px;"></i>
+        </div>
+    </nav>
+    <!--<ul class="row" style="margin: 0px; padding: 0; height: 100%; display: flex; justify-content: space-evenly; align-items: center;">
         <div class="col-sm-4" style="height: 100%; display: flex; align-items: center; justify-content: space-evenly; overflow: hidden;">
-            <li style="overflow: hidden;"><a href="index.php">Inicio</a></li>
-            <li style="overflow: hidden;"><a href="torneos.php">Torneos</a></li>
-            <li style="overflow: hidden;"><a href="contactanos.php">Contactanos</a></li>
+            <li style="overflow: hidden;"><a [routerLink]="['/inicio']">Inicio</a></li>
+            <li style="overflow: hidden;"><a [routerLink]="['/tor/5']">Torneos</a></li>
+            <li style="overflow: hidden;"><a [routerLink]="['/contactanos']">Contactanos</a></li>
         </div>
         <div class="col-sm-4" style="height: 100%; display: flex; align-items: center; justify-content: center; overflow: hidden;">
             <li class="col-sm-12" id="barner_menu" style="height: 100%;">
                 <a href="index.php" style="padding: 0px; line-height: 56px; font-size: 30px; word-spacing: 5px;">
                     Torneo Master
-                    <!--<img src="/assets/image/art/barner.png" alt=""/>-->
+                    &lt;!&ndash;<img src="/assets/image/art/barner.png" alt=""/>&ndash;&gt;
                 </a>
             </li>
         </div>
@@ -20,11 +61,11 @@
             </div>
             <div class="col-sm-7" style="display: flex; justify-content: space-evenly; align-items: center;">
 
-                <!--<li style="overflow: hidden;" name='none'><a href="#"><img src="/assets/image/icon-facebook.png" alt="Facebook"/></a></li>
+                &lt;!&ndash;<li style="overflow: hidden;" name='none'><a href="#"><img src="/assets/image/icon-facebook.png" alt="Facebook"/></a></li>
                 <li style="overflow: hidden;" name='none'><a href="#"><img src="/assets/image/icon-twitter.png" alt="Twitter"/></a></li>
-                <li style="overflow: hidden;" name='none'><a href="#"><img src="/assets/image/icon-googleplus.png" alt="Google+"/></a></li>-->
+                <li style="overflow: hidden;" name='none'><a href="#"><img src="/assets/image/icon-googleplus.png" alt="Google+"/></a></li>&ndash;&gt;
             </div>
         </div>
-    </ul>
+    </ul>-->
 </div>
 <!-- End Menu -->

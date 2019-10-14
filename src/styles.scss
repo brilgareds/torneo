@@ -57,3 +57,12 @@ body {
   background: linear-gradient(141deg, rgba(7, 32, 78, 0.94) 0%, rgba(88, 136, 195, 0.94) 51%, rgba(7, 32, 78, 0.94) 75%);
   color: #FFF;
 }
+
+.tabs__panel {
+  background-color: #ffffff !important;
+}
+
+.tabs__tab.active {
+  background-color: #1c57a3 !important;
+  color: white;
+}

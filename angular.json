@@ -30,7 +30,8 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap-reboot.min.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.scss"
+              "./src/app/fontawesome/css/all.min.css",
+              "./src/styles.scss"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
